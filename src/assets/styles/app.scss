@@ -1,0 +1,81 @@
+#root {
+  max-width: full;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+html {
+  background-color: black;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.underline-animation {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+.logo {
+  height: 6em;
+  will-change: filter;
+  transition: filter 0.4s;
+  filter: drop-shadow(0 0 1em #005dc7d0);
+
+  &.svg{
+    width: 30%;
+    height: 30%;
+  }
+}
+
+#galaxy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(180deg,
+    #1f3058 0%,
+    #2c4168 5%,
+    #243550 10%,
+    #1b2a45 15%,
+    #11182c 30%,
+    #0f1425 45%,
+    #090b1a 60%,
+    #03050f 80%,
+    #011313 100%);
+
+  background-size: 200% 200%;
+  animation: Gradient 15s ease infinite alternate;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
