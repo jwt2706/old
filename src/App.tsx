@@ -9,10 +9,8 @@ const Navigation: FC = () => {
     navigate("/");
   }, [navigate]);
 
-  // redirect 404s to home page because im too lazy to make a page for that
   const routes = useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "*", element: <Navigate to="/" replace /> },
+    { path: "/old", element: <Home /> },
   ]);
 
   return routes;
